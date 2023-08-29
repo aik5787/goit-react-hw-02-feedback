@@ -4,8 +4,6 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
 
-
-
 export class App extends Component {
   state = {
     good: 0,
@@ -13,14 +11,12 @@ export class App extends Component {
     bad: 0,
   };
 
-    handleFeedbackClick = (type) => {
-    this.setState((prevState) => ({
+  handleFeedbackClick = type => {
+    this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
-    };
-  
-  
-  
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
@@ -34,7 +30,7 @@ export class App extends Component {
             onLeaveFeedback={this.handleFeedbackClick}
           />
         </Section>
-          <Section title="Statistics">
+        <Section title="Statistics">
           {total > 0 ? (
             <Statistics
               good={good}
